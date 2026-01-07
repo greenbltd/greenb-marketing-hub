@@ -45,8 +45,8 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <a href="#home" className="flex items-center gap-2 mb-6">
-              <img src={logo} alt="GREENB Logo" className="h-10 w-10" />
-              <span className="text-xl font-bold">GREENB</span>
+              <img src={logo} alt="GreenB Logo" className="h-10 w-10" />
+              <span className="text-xl font-bold">GreenB</span>
             </a>
             <p className="text-primary-foreground/70 mb-6 max-w-sm">
               Transforming waste management with smart IoT technology. Building
@@ -131,10 +131,10 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/20 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-primary-foreground/60 text-sm">
-            © {new Date().getFullYear()} GREENB. All rights reserved.
+            © {new Date().getFullYear()} GreenB. All rights reserved.
           </p>
           <p className="text-primary-foreground/60 text-sm text-center md:text-right">
-            <span className="text-primary">GREENB</span> – Smarter Waste, Cleaner
+            <span className="text-primary">GreenB</span> – Smarter Waste, Cleaner
             Future
           </p>
         </div>

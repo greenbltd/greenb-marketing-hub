@@ -14,7 +14,7 @@ const NotFound = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-greenb-50 to-greenb-100">
       <div className="text-center container-padding">
-        <img src={logo} alt="GREENB Logo" className="w-20 h-20 mx-auto mb-8 animate-float" />
+        <img src={logo} alt="GreenB Logo" className="w-20 h-20 mx-auto mb-8 animate-float" />
         <h1 className="text-8xl font-bold text-primary mb-4">404</h1>
         <p className="text-2xl font-semibold text-foreground mb-2">Page Not Found</p>
         <p className="text-muted-foreground mb-8 max-w-md mx-auto">

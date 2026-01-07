@@ -74,7 +74,7 @@ export function ContactSection() {
             Ready to Go <span className="gradient-text">Green?</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Contact us today for a demo or to learn how GREENB can transform your
+            Contact us today for a demo or to learn how GreenB can transform your
             city's waste management.
           </p>
         </div>
@@ -233,7 +233,7 @@ export function ContactSection() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="GREENB Location"
+                title="GreenB Location"
               />
             </div>
           </div>

@@ -13,7 +13,7 @@ const features = [
 
 const products = [
   {
-    name: "GREENB Smart Bin Pro",
+    name: "GreenB Smart Bin Pro",
     description:
       "Our flagship smart waste bin with advanced IoT sensors for commercial and municipal use.",
     image: smartBinImage,
