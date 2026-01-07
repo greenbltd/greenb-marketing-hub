@@ -135,7 +135,7 @@ export function ImpactSection() {
               </h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 Our smart waste management solutions don't just save money—they
-                save the planet. By implementing GREENB technology, cities have
+                save the planet. By implementing GreenB technology, cities have
                 seen dramatic improvements in waste collection efficiency,
                 recycling rates, and overall environmental health.
               </p>

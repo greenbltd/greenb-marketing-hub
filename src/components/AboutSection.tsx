@@ -34,14 +34,14 @@ export function AboutSection() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-            About GREENB
+            About GreenB
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Building a{" "}
             <span className="gradient-text">Sustainable Future</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            GREENB is at the forefront of smart waste management technology,
+            GreenB is at the forefront of smart waste management technology,
             combining IoT innovation with environmental responsibility.
           </p>
         </div>

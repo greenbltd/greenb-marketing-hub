@@ -51,7 +51,7 @@ export function HeroSection() {
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto animate-fade-in-up delay-200">
-            Cleaner, safer, and smarter communities powered by GREENB IoT solutions.
+            Cleaner, safer, and smarter communities powered by GreenB IoT solutions.
             Real-time monitoring, instant alerts, and optimized collection routes.
           </p>
 

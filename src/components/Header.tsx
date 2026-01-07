@@ -51,7 +51,7 @@ export function Header() {
             }}
             className="flex items-center gap-2"
           >
-            <img src={logo} alt="GREENB Logo" className="h-10 w-10" />
+            <img src={logo} alt="GreenB Logo" className="h-10 w-10" />
             <span className="text-xl font-bold text-primary">GreenB</span>
           </a>
 
