@@ -1,11 +1,11 @@
 import { Linkedin, Twitter, Mail } from "lucide-react";
 import musaImg from "@/assets/team/musa-adamu-iya.jpeg";
 import abdullahiImg from "@/assets/team/abdullahi-adamu.jpeg";
+import ahmadImg from "@/assets/team/ahmad-abdulaziz.jpeg";
 
 interface TeamMember {
   name: string;
   role: string;
-  bio: string;
   image: string;
   socials?: {
     linkedin?: string;
@@ -18,7 +18,6 @@ const teamMembers: TeamMember[] = [
   {
     name: "Musa Adamu Iya",
     role: "Co-founder & CEO",
-    bio: "Provides overall strategic leadership, manages partnerships and investor relations, and ensures alignment across all departments. Supports fundraising, business development, and marketing initiatives.",
     image: musaImg,
     socials: {
       linkedin: "#",
@@ -29,12 +28,21 @@ const teamMembers: TeamMember[] = [
   {
     name: "Abdullahi Adamu",
     role: "Co-founder & CTO",
-    bio: "Leads all technology-related development, including smart trash bin engineering, IoT integration, product testing, and continuous improvement of hardware and software systems.",
     image: abdullahiImg,
     socials: {
       linkedin: "#",
       twitter: "#",
       email: "mailto:abdullahi@greenb.com",
+    },
+  },
+  {
+    name: "Ahmad Abdulaziz",
+    role: "COO",
+    image: ahmadImg,
+    socials: {
+      linkedin: "#",
+      twitter: "#",
+      email: "mailto:ahmad@greenb.com",
     },
   },
 ];
