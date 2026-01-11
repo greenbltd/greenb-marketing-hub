@@ -1,5 +1,6 @@
 import { Linkedin, Twitter, Mail } from "lucide-react";
 import musaImg from "@/assets/team/musa-adamu-iya.jpeg";
+import abdullahiImg from "@/assets/team/abdullahi-adamu.jpeg";
 
 interface TeamMember {
   name: string;
@@ -23,6 +24,17 @@ const teamMembers: TeamMember[] = [
       linkedin: "#",
       twitter: "#",
       email: "mailto:musa@greenb.com",
+    },
+  },
+  {
+    name: "Abdullahi Adamu",
+    role: "Co-founder & CTO",
+    bio: "Leads all technology-related development, including smart trash bin engineering, IoT integration, product testing, and continuous improvement of hardware and software systems.",
+    image: abdullahiImg,
+    socials: {
+      linkedin: "#",
+      twitter: "#",
+      email: "mailto:abdullahi@greenb.com",
     },
   },
 ];
