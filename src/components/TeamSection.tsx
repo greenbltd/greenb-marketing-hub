@@ -45,6 +45,16 @@ const teamMembers: TeamMember[] = [
       email: "mailto:ahmad@greenb.com",
     },
   },
+  {
+    name: "Amina Umar Muhammad",
+    role: "CMO",
+    image: "", // Placeholder - upload image later
+    socials: {
+      linkedin: "#",
+      twitter: "#",
+      email: "mailto:amina@greenb.com",
+    },
+  },
 ];
 
 export const TeamSection = () => {
