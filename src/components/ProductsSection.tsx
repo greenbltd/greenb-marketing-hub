@@ -111,10 +111,10 @@ export function ProductsSection() {
               {/* Product Image */}
               <div className="relative mb-6 overflow-hidden rounded-2xl bg-muted/30">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-greenb-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <img
+              <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
