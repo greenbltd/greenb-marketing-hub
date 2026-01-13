@@ -1,24 +1,70 @@
 import { Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import smartBinImage from "@/assets/smart-bin-product.jpg";
-
-const features = [
-  "Real-time fill level monitoring",
-  "Temperature & fire detection",
-  "Solar-powered operation",
-  "4G/LoRaWAN connectivity",
-  "Weather-resistant design",
-  "5+ year battery life",
-];
+import smartBinWheelie from "@/assets/products/smart-bin-wheelie.jpeg";
+import smartBinSorting from "@/assets/products/smart-bin-sorting.jpeg";
+import smartBinOutdoor from "@/assets/products/smart-bin-outdoor.jpeg";
+import smartBinDual from "@/assets/products/smart-bin-dual.jpeg";
 
 const products = [
   {
-    name: "GreenB Smart Bin Pro",
+    name: "GreenB Smart Wheelie Bin",
     description:
-      "Our flagship smart waste bin with advanced IoT sensors for commercial and municipal use.",
-    image: smartBinImage,
-    features: features,
+      "Our flagship smart waste bin with advanced IoT sensors for commercial and municipal use. Perfect for general waste collection.",
+    image: smartBinWheelie,
+    features: [
+      "Real-time fill level monitoring",
+      "Temperature & fire detection",
+      "Solar-powered operation",
+      "4G/LoRaWAN connectivity",
+      "Weather-resistant design",
+      "5+ year battery life",
+    ],
     badge: "Most Popular",
+  },
+  {
+    name: "GreenB Sorting Station",
+    description:
+      "Multi-compartment waste sorting station for offices and public spaces. Enables efficient recycling with color-coded compartments.",
+    image: smartBinSorting,
+    features: [
+      "3-compartment sorting",
+      "Smart fill detection per compartment",
+      "Interactive waste guidance",
+      "Mobile app integration",
+      "Sleek modern design",
+      "Easy maintenance access",
+    ],
+    badge: "Best for Offices",
+  },
+  {
+    name: "GreenB Outdoor Bin",
+    description:
+      "Durable outdoor smart bin designed for parks, streets, and public areas. Built to withstand harsh weather conditions.",
+    image: smartBinOutdoor,
+    features: [
+      "Vandal-resistant construction",
+      "UV-protected exterior",
+      "Automatic lid mechanism",
+      "GPS location tracking",
+      "Rain and dust proof",
+      "High-capacity design",
+    ],
+    badge: "Outdoor Ready",
+  },
+  {
+    name: "GreenB Dual Unit",
+    description:
+      "Compact dual-bin solution for high-traffic areas. Maximizes collection efficiency with minimal footprint.",
+    image: smartBinDual,
+    features: [
+      "Dual waste compartments",
+      "Compact footprint",
+      "High-volume capacity",
+      "Decorative leaf pattern",
+      "Easy-empty design",
+      "Modular configuration",
+    ],
+    badge: "Space Efficient",
   },
 ];
 
@@ -48,72 +94,78 @@ export function ProductsSection() {
           </p>
         </div>
 
-        {/* Product Showcase */}
-        {products.map((product) => (
-          <div
-            key={product.name}
-            className="grid lg:grid-cols-2 gap-12 items-center"
-          >
-            {/* Product Image */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-greenb-400/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity" />
-              <div className="relative bg-card rounded-3xl p-8 shadow-xl border border-border/50">
-                {product.badge && (
-                  <span className="absolute top-6 right-6 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
-                    {product.badge}
-                  </span>
-                )}
+        {/* Products Grid */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {products.map((product, index) => (
+            <div
+              key={product.name}
+              className="group relative bg-card rounded-3xl p-6 shadow-xl border border-border/50 hover:border-primary/30 transition-all duration-300"
+            >
+              {/* Badge */}
+              {product.badge && (
+                <span className="absolute top-4 right-4 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full z-10">
+                  {product.badge}
+                </span>
+              )}
+
+              {/* Product Image */}
+              <div className="relative mb-6 overflow-hidden rounded-2xl bg-muted/30">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-greenb-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-auto rounded-2xl"
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-            </div>
 
-            {/* Product Details */}
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-                {product.name}
-              </h3>
-              <p className="text-lg text-muted-foreground mb-8">
-                {product.description}
-              </p>
+              {/* Product Details */}
+              <div>
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  {product.name}
+                </h3>
+                <p className="text-muted-foreground mb-5 text-sm">
+                  {product.description}
+                </p>
 
-              {/* Features List */}
-              <div className="grid sm:grid-cols-2 gap-4 mb-10">
-                {product.features.map((feature) => (
-                  <div key={feature} className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Check className="w-4 h-4 text-primary" />
+                {/* Features List */}
+                <div className="grid grid-cols-2 gap-2 mb-6">
+                  {product.features.slice(0, 4).map((feature) => (
+                    <div key={feature} className="flex items-center gap-2">
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Check className="w-3 h-3 text-primary" />
+                      </div>
+                      <span className="text-foreground text-xs">{feature}</span>
                     </div>
-                    <span className="text-foreground text-sm">{feature}</span>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
 
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4">
+                {/* CTA */}
                 <Button
-                  size="lg"
                   onClick={scrollToContact}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                 >
                   Request Quote
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  onClick={scrollToContact}
-                  className="border-primary text-primary hover:bg-primary/5 font-semibold px-8"
-                >
-                  Schedule Demo
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-12">
+          <p className="text-muted-foreground mb-4">
+            Need a custom solution for your organization?
+          </p>
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={scrollToContact}
+            className="border-primary text-primary hover:bg-primary/5 font-semibold px-8"
+          >
+            Schedule a Consultation
+          </Button>
+        </div>
       </div>
     </section>
   );
