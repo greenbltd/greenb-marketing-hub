@@ -2,6 +2,7 @@ import { Linkedin, Twitter, Mail } from "lucide-react";
 import musaImg from "@/assets/team/musa-adamu-iya.jpeg";
 import abdullahiImg from "@/assets/team/abdullahi-adamu.jpeg";
 import ahmadImg from "@/assets/team/ahmad-abdulaziz.jpeg";
+import aminaImg from "@/assets/team/amina-umar-muhammad.jpeg";
 
 interface TeamMember {
   name: string;
@@ -48,7 +49,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Amina Umar Muhammad",
     role: "CMO",
-    image: "", // Placeholder - upload image later
+    image: aminaImg,
     socials: {
       linkedin: "#",
       twitter: "#",
