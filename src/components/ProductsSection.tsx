@@ -1,10 +1,15 @@
+import { useState } from "react";
 import { Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import smartBinWheelie from "@/assets/products/smart-bin-wheelie.jpeg";
 import smartBinSorting from "@/assets/products/smart-bin-sorting.jpeg";
 import smartBinOutdoor from "@/assets/products/smart-bin-outdoor.jpeg";
 import smartBinDual from "@/assets/products/smart-bin-dual.jpeg";
-
 const products = [
   {
     name: "GreenB Smart Wheelie Bin",
@@ -69,6 +74,8 @@ const products = [
 ];
 
 export function ProductsSection() {
+  const [selectedImage, setSelectedImage] = useState<{ src: string; name: string } | null>(null);
+
   const scrollToContact = () => {
     const element = document.querySelector("#contact");
     if (element) {
@@ -109,13 +116,21 @@ export function ProductsSection() {
               )}
 
               {/* Product Image */}
-              <div className="relative mb-6 overflow-hidden rounded-2xl bg-muted/30">
+              <div 
+                className="relative mb-6 overflow-hidden rounded-2xl bg-muted/30 cursor-pointer"
+                onClick={() => setSelectedImage({ src: product.image, name: product.name })}
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-greenb-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <img
+                <img
                   src={product.image}
                   alt={product.name}
                   className="w-full h-80 object-contain group-hover:scale-105 transition-transform duration-500"
                 />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20">
+                  <span className="text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-full">
+                    Click to enlarge
+                  </span>
+                </div>
               </div>
 
               {/* Product Details */}
@@ -167,6 +182,27 @@ export function ProductsSection() {
           </Button>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-4xl p-2 bg-background/95 backdrop-blur">
+          <DialogTitle className="sr-only">
+            {selectedImage?.name || "Product Image"}
+          </DialogTitle>
+          {selectedImage && (
+            <div className="relative">
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.name}
+                className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+              />
+              <p className="text-center text-foreground font-medium mt-3 pb-2">
+                {selectedImage.name}
+              </p>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
