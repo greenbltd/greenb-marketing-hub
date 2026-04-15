@@ -9,19 +9,19 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email Us",
-    value: "hello@greenb.io",
-    href: "mailto:hello@greenb.io",
+    value: "greenbltd01@gmail.com",
+    href: "mailto:greenbltd01@gmail.com",
   },
   {
     icon: Phone,
     label: "Call Us",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "07062633321",
+    href: "tel:+2347062633321",
   },
   {
     icon: MapPin,
     label: "Visit Us",
-    value: "123 Green Street, Eco City",
+    value: "TIC Complex, 124 Farm Centre, Tarauni, Kano State",
     href: "#",
   },
 ];
