@@ -76,10 +76,12 @@ export function Header() {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <Button
-              onClick={() => scrollToSection("#contact")}
+              asChild
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6"
             >
-              Request Demo
+              <a href="https://greenbapp.com" target="_blank" rel="noopener noreferrer">
+                Get Started
+              </a>
             </Button>
           </div>
 
