@@ -113,10 +113,12 @@ export function Header() {
                 </a>
               ))}
               <Button
-                onClick={() => scrollToSection("#contact")}
+                asChild
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold w-full mt-2"
               >
-                Request Demo
+                <a href="https://greenbapp.com" target="_blank" rel="noopener noreferrer">
+                  Get Started
+                </a>
               </Button>
             </nav>
           </div>
