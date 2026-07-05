@@ -59,11 +59,13 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-300">
             <Button
               size="lg"
-              onClick={() => scrollToSection("#contact")}
+              asChild
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-full shadow-glow hover:shadow-glow-lg transition-all"
             >
-              Request Demo
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <a href="https://greenbapp.com" target="_blank" rel="noopener noreferrer">
+                Get Started
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
             </Button>
             <Button
               size="lg"
