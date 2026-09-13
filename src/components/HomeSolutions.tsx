@@ -1,4 +1,4 @@
-import { ArrowRight, Building2, Gift, Recycle, Sensor, Users, Warehouse } from "lucide-react";
+import { ArrowRight, Building2, Gift, RadioTower, Recycle, Users, Warehouse } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import smartBin from "@/assets/products/smart-bin-wheelie.jpeg";
@@ -31,7 +31,7 @@ export function HomeSolutions() {
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {[
-            { icon: Sensor, title: "Smart Waste Management", text: "Connected monitoring helps teams see bin status, plan collection and use operational data.", to: "/smart-waste-management" },
+            { icon: RadioTower, title: "Smart Waste Management", text: "Connected monitoring helps teams see bin status, plan collection and use operational data.", to: "/smart-waste-management" },
             { icon: Recycle, title: "Smart Bin", text: "Purpose-built waste units combine durable design with connected sensing and monitoring.", to: "/smart-bin" },
             { icon: Gift, title: "GreenB EcoRewards", text: "A circular participation programme that connects recyclable collection with rewards.", to: "/ecorewards" },
           ].map((item) => <article key={item.title} className="border-t-4 border-primary bg-card p-7 shadow-md">
