@@ -1,241 +1,75 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { CheckCircle, Mail, MapPin, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
 const contactInfo = [
-  {
-    icon: Mail,
-    label: "Email Us",
-    value: "greenbltd01@gmail.com",
-    href: "mailto:greenbltd01@gmail.com",
-  },
-  {
-    icon: Phone,
-    label: "Call Us",
-    value: "07062633321",
-    href: "tel:+2347062633321",
-  },
-  {
-    icon: MapPin,
-    label: "Visit Us",
-    value: "TIC Complex, 124 Farm Centre, Tarauni, Kano State",
-    href: "#",
-  },
+  { icon: Mail, label: "Email Us", value: "greenbltd01@gmail.com", href: "mailto:greenbltd01@gmail.com" },
+  { icon: Phone, label: "Call Us", value: "07062633321", href: "tel:+2347062633321" },
+  { icon: MapPin, label: "Visit Us", value: "TIC Complex, 124 Farm Centre, Tarauni, Kano State", href: "https://www.google.com/maps/search/?api=1&query=TIC+Complex+124+Farm+Centre+Tarauni+Kano+Nigeria" },
 ];
+
+type FormData = { name: string; email: string; company: string; message: string; website: string };
+const initialForm: FormData = { name: "", email: "", company: "", message: "", website: "" };
 
 export function ContactSection() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState<FormData>(initialForm);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (formData.website) return;
     setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
+    const subject = encodeURIComponent(`GreenB enquiry from ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || "Not provided"}\n\n${formData.message}`);
+    window.location.href = `mailto:greenbltd01@gmail.com?subject=${subject}&body=${body}`;
     setIsSubmitting(false);
     setIsSubmitted(true);
-    setFormData({ name: "", email: "", company: "", message: "" });
-
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-
-    setTimeout(() => setIsSubmitted(false), 5000);
+    setFormData(initialForm);
+    toast({ title: "Your email draft is ready", description: "Please send it from your email app to complete the enquiry." });
+    window.setTimeout(() => setIsSubmitted(false), 5000);
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((previous) => ({ ...previous, [event.target.name]: event.target.value }));
   };
 
   return (
     <section id="contact" className="section-padding bg-background">
       <div className="container mx-auto container-padding">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-            Get In Touch
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Ready to Go <span className="gradient-text">Green?</span>
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            Contact us today for a demo or to learn how GreenB can transform your
-            city's waste management.
-          </p>
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-primary">Get In Touch</span>
+          <h2 className="mb-6 text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">Ready to Go <span className="gradient-text">Green?</span></h2>
+          <p className="text-lg text-muted-foreground">Request a Smart Bin, join EcoRewards or discuss how GreenB can support your waste-management goals.</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-card rounded-3xl p-8 md:p-10 shadow-lg border border-border/50">
-            <h3 className="text-xl font-semibold text-foreground mb-6">
-              Request a Demo
-            </h3>
-
+        <div className="grid gap-12 lg:grid-cols-2">
+          <div className="rounded-3xl border border-border/50 bg-card p-8 shadow-lg md:p-10">
+            <h3 className="mb-6 text-xl font-semibold text-foreground">Contact GreenB</h3>
             {isSubmitted ? (
-              <div className="text-center py-12">
-                <CheckCircle className="w-16 h-16 text-primary mx-auto mb-4" />
-                <h4 className="text-xl font-semibold text-foreground mb-2">
-                  Thank You!
-                </h4>
-                <p className="text-muted-foreground">
-                  We've received your message and will be in touch soon.
-                </p>
-              </div>
+              <div className="py-12 text-center"><CheckCircle className="mx-auto mb-4 h-16 w-16 text-primary" /><h4 className="mb-2 text-xl font-semibold">Thank You</h4><p className="text-muted-foreground">Your email client should now contain a prepared enquiry.</p></div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Full Name *
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="John Doe"
-                      required
-                      className="bg-background"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Email *
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="john@company.com"
-                      required
-                      className="bg-background"
-                    />
-                  </div>
+                <div className="hidden" aria-hidden="true"><label htmlFor="website">Website</label><Input id="website" name="website" value={formData.website} onChange={handleChange} tabIndex={-1} autoComplete="off" /></div>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div><label htmlFor="name" className="mb-2 block text-sm font-medium">Full Name *</label><Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Your name" required minLength={2} className="bg-background" /></div>
+                  <div><label htmlFor="email" className="mb-2 block text-sm font-medium">Email *</label><Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="you@company.com" required className="bg-background" /></div>
                 </div>
-
-                <div>
-                  <label
-                    htmlFor="company"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Company / Organization
-                  </label>
-                  <Input
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    placeholder="City Municipality"
-                    className="bg-background"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Message *
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your waste management needs..."
-                    rows={4}
-                    required
-                    className="bg-background resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-                >
-                  {isSubmitting ? (
-                    <span className="flex items-center gap-2">
-                      <span className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                      Sending...
-                    </span>
-                  ) : (
-                    <span className="flex items-center gap-2">
-                      Send Message
-                      <Send className="w-4 h-4" />
-                    </span>
-                  )}
-                </Button>
+                <div><label htmlFor="company" className="mb-2 block text-sm font-medium">Company / Organization</label><Input id="company" name="company" value={formData.company} onChange={handleChange} placeholder="Organization name" className="bg-background" /></div>
+                <div><label htmlFor="message" className="mb-2 block text-sm font-medium">Message *</label><Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your waste-management or recycling needs..." rows={5} required minLength={20} className="resize-none bg-background" /></div>
+                <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-primary font-semibold text-primary-foreground hover:bg-primary/90">{isSubmitting ? "Preparing..." : <span className="flex items-center justify-center gap-2">Send Enquiry <Send className="h-4 w-4" /></span>}</Button>
+                <p className="text-xs text-muted-foreground">Submitting opens your email client; no sensitive information is stored by this website.</p>
               </form>
             )}
           </div>
 
-          {/* Contact Info */}
           <div className="space-y-8">
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-6">
-                Contact Information
-              </h3>
-              <div className="space-y-4">
-                {contactInfo.map((info) => (
-                  <a
-                    key={info.label}
-                    href={info.href}
-                    className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <info.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-muted-foreground">
-                        {info.label}
-                      </div>
-                      <div className="font-medium text-foreground">
-                        {info.value}
-                      </div>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Map Placeholder */}
-            <div className="rounded-2xl overflow-hidden h-64 bg-muted">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.30596073366!2d-74.25987368715491!3d40.69714941680757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1635000000000!5m2!1sen!2s"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="GreenB Location"
-              />
-            </div>
+            <div><h3 className="mb-6 text-xl font-semibold">Contact Information</h3><div className="space-y-4">{contactInfo.map((info) => <a key={info.label} href={info.href} target={info.href.startsWith("http") ? "_blank" : undefined} rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined} className="group flex items-center gap-4 rounded-xl bg-muted/50 p-4 transition-colors hover:bg-muted"><div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20"><info.icon className="h-5 w-5 text-primary" /></div><div><div className="text-sm text-muted-foreground">{info.label}</div><div className="font-medium">{info.value}</div></div></a>)}</div></div>
+            <div className="h-64 overflow-hidden rounded-2xl bg-muted"><iframe src="https://www.google.com/maps?q=TIC+Complex,+124+Farm+Centre,+Tarauni,+Kano,+Nigeria&output=embed" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="GreenB location in Kano, Nigeria" /></div>
           </div>
         </div>
       </div>

@@ -1,142 +1,65 @@
-import { Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/greenb-logo.png";
 
 const footerLinks = {
   company: [
-    { label: "About Us", href: "#about" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Products", href: "#products" },
-    { label: "Impact", href: "#impact" },
+    { label: "About GreenB", href: "/about" },
+    { label: "Solutions", href: "/solutions" },
+    { label: "Impact", href: "/impact" },
+    { label: "Partners", href: "/partners" },
   ],
   resources: [
-    { label: "Blog", href: "#" },
-    { label: "Case Studies", href: "#" },
-    { label: "Documentation", href: "#" },
-    { label: "Support", href: "#contact" },
+    { label: "Smart Waste Management", href: "/smart-waste-management" },
+    { label: "Smart Bin", href: "/smart-bin" },
+    { label: "EcoRewards", href: "/ecorewards" },
+    { label: "FAQ", href: "/faq" },
   ],
   legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
-    { label: "Cookie Policy", href: "#" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms & Conditions", href: "/terms" },
+    { label: "Contact GreenB", href: "/contact" },
   ],
 };
 
 const socialLinks = [
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Linkedin, href: "https://www.linkedin.com", label: "LinkedIn" },
+  { icon: Twitter, href: "https://x.com", label: "X" },
   { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61576584218445", label: "Facebook" },
-  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Instagram, href: "https://www.instagram.com", label: "Instagram" },
 ];
 
 export function Footer() {
-  const scrollToSection = (href: string) => {
-    if (href.startsWith("#")) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
-
   return (
     <footer className="bg-greenb-900 text-primary-foreground">
       <div className="container mx-auto container-padding py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
-          {/* Brand Column */}
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <a href="#home" className="flex items-center gap-2 mb-6">
+            <Link to="/" className="mb-6 flex items-center gap-2">
               <img src={logo} alt="GreenB Logo" className="h-10 w-10" />
               <span className="text-xl font-bold">GreenB</span>
-            </a>
-            <p className="text-primary-foreground/70 mb-6 max-w-sm">
-              Transforming waste management with smart IoT technology. Building
-              cleaner, safer, and more sustainable communities worldwide.
-            </p>
+            </Link>
+            <p className="mb-6 max-w-sm text-primary-foreground/70">Smart waste management and circular-economy solutions that turn waste into environmental and economic value.</p>
             <div className="flex gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                >
-                  <social.icon className="w-5 h-5" />
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 transition-colors hover:bg-primary hover:text-primary-foreground">
+                  <Icon className="h-5 w-5" />
                 </a>
               ))}
             </div>
           </div>
-
-          {/* Company Links */}
-          <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(link.href);
-                    }}
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources Links */}
-          <div>
-            <h4 className="font-semibold mb-4">Resources</h4>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      if (link.href.startsWith("#")) {
-                        e.preventDefault();
-                        scrollToSection(link.href);
-                      }
-                    }}
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal Links */}
-          <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {Object.entries(footerLinks).map(([heading, links]) => (
+            <div key={heading}>
+              <h4 className="mb-4 font-semibold capitalize">{heading}</h4>
+              <ul className="space-y-3">
+                {links.map((link) => <li key={link.label}><Link to={link.href} className="text-primary-foreground/70 transition-colors hover:text-primary-foreground">{link.label}</Link></li>)}
+              </ul>
+            </div>
+          ))}
         </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-primary-foreground/20 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-primary-foreground/60 text-sm">
-            © {new Date().getFullYear()} GreenB. All rights reserved.
-          </p>
-          <p className="text-primary-foreground/60 text-sm text-center md:text-right">
-            <span className="text-primary">GreenB</span> – Smarter Waste, Cleaner
-            Future
-          </p>
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/20 pt-8 md:flex-row">
+          <p className="text-sm text-primary-foreground/60">© {new Date().getFullYear()} GreenB. All rights reserved.</p>
+          <p className="text-center text-sm text-primary-foreground/60 md:text-right"><span className="text-primary">GreenB</span> – Smarter Waste, Cleaner Future</p>
         </div>
       </div>
     </footer>

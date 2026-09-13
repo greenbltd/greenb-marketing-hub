@@ -36,23 +36,22 @@ export function HeroSection() {
           <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-4 py-2 mb-8 animate-fade-in-up">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="text-sm font-medium text-primary-foreground/90">
-              Smart IoT Solutions for Waste Management
+              Smart Waste Management. Circular Economy. Real Impact.
             </span>
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 animate-fade-in-up delay-100 leading-tight">
-            Transforming Waste
+            Smart Waste Management.
             <span className="block mt-2">
-              Management with{" "}
-              <span className="text-greenb-300">Smart Technology</span>
+              Circular Economy. <span className="text-greenb-300">Real Impact.</span>
             </span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto animate-fade-in-up delay-200">
-            Cleaner, safer, and smarter communities powered by GreenB IoT solutions.
-            Real-time monitoring, instant alerts, and optimized collection routes.
+            GreenB combines AI, IoT, smart bins, recycling and GREENB EcoRewards to
+            help people and organizations turn waste into environmental and economic value.
           </p>
 
           {/* CTAs */}
@@ -63,7 +62,7 @@ export function HeroSection() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-full shadow-glow hover:shadow-glow-lg transition-all"
             >
               <a href="https://greenbapp.com" target="_blank" rel="noopener noreferrer">
-                Get Started
+                Explore GreenB Solutions
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
@@ -78,32 +77,8 @@ export function HeroSection() {
             </Button>
           </div>
 
-          {/* Stats Preview */}
-          <div className="grid grid-cols-3 gap-8 mt-20 pt-10 border-t border-primary-foreground/20 animate-fade-in-up delay-500">
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-primary-foreground">
-                10K+
-              </div>
-              <div className="text-sm text-primary-foreground/70 mt-1">
-                Smart Bins Deployed
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-primary-foreground">
-                50+
-              </div>
-              <div className="text-sm text-primary-foreground/70 mt-1">
-                Cities Served
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-primary-foreground">
-                40%
-              </div>
-              <div className="text-sm text-primary-foreground/70 mt-1">
-                Cost Reduction
-              </div>
-            </div>
+          <div className="mt-20 border-t border-primary-foreground/20 pt-8 text-sm text-primary-foreground/75 animate-fade-in-up delay-500">
+            AI-enabled insight · IoT monitoring · Recycling participation · Community partnerships
           </div>
         </div>
       </div>
