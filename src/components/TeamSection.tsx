@@ -113,6 +113,8 @@ export const TeamSection = () => {
                     {member.socials.linkedin && (
                       <a
                         href={member.socials.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors"
                         aria-label={`${member.name} LinkedIn`}
                       >
@@ -122,6 +124,8 @@ export const TeamSection = () => {
                     {member.socials.twitter && (
                       <a
                         href={member.socials.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors"
                         aria-label={`${member.name} Twitter`}
                       >
