@@ -7,6 +7,7 @@ import ahmedImg from "@/assets/team/ahmed-salisu-ahmed.jpg";
 interface TeamMember {
   name: string;
   role: string;
+  focus?: string;
   image: string;
   socials?: {
     linkedin?: string;
@@ -39,11 +40,13 @@ const teamMembers: TeamMember[] = [
   {
     name: "Ahmed Salisu Ahmed",
     role: "Chief Operating Officer (COO)",
+    focus: "Lead Operations • Execution • Efficiency • Business Performance",
     image: ahmedImg,
   },
   {
     name: "Dr. Hadiza Shettima Lawan",
     role: "Business Development Director (BDD)",
+    focus: "Lead Business Growth • Strategic Partnerships • Market Expansion • New Opportunities",
     image: hadizaImg,
   },
 ];
@@ -86,9 +89,14 @@ export const TeamSection = () => {
                 <h3 className="text-lg font-bold text-foreground mb-1">
                   {member.name}
                 </h3>
-                <p className="text-primary font-medium text-sm mb-3">
+                <p className="text-primary font-medium text-sm mb-1">
                   {member.role}
                 </p>
+                {member.focus && (
+                  <p className="text-muted-foreground text-xs mb-3">
+                    {member.focus}
+                  </p>
+                )}
 
                 {/* Social Links */}
                 {member.socials && (
