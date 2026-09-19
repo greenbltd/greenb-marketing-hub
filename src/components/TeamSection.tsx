@@ -89,9 +89,14 @@ export const TeamSection = () => {
                 <h3 className="text-lg font-bold text-foreground mb-1">
                   {member.name}
                 </h3>
-                <p className="text-primary font-medium text-sm mb-3">
+                <p className="text-primary font-medium text-sm mb-1">
                   {member.role}
                 </p>
+                {member.focus && (
+                  <p className="text-muted-foreground text-xs mb-3">
+                    {member.focus}
+                  </p>
+                )}
 
                 {/* Social Links */}
                 {member.socials && (
