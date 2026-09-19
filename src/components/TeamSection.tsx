@@ -19,7 +19,8 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     name: "Musa Adamu Iya",
-    role: "Co-founder & CEO",
+    role: "Chief Executive Officer",
+    focus: "Lead Vision • Leadership • Strategy • Overall Direction",
     image: musaImg,
     socials: {
       linkedin: "#",
@@ -29,7 +30,8 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Abdullahi Adamu",
-    role: "Co-founder & CTO",
+    role: "CTO — Chief Technology Officer",
+    focus: "Technology • Innovation • Systems • Digital Development",
     image: abdullahiImg,
     socials: {
       linkedin: "#",
