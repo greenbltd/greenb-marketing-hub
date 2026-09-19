@@ -1,6 +1,8 @@
 import { Linkedin, Twitter, Mail } from "lucide-react";
 import musaImg from "@/assets/team/musa-adamu-iya.jpeg";
 import abdullahiImg from "@/assets/team/abdullahi-adamu.jpeg";
+import hadizaImg from "@/assets/team/hadiza-shettima-lawan.jpg";
+import ahmedImg from "@/assets/team/ahmed-salisu-ahmed.jpg";
 
 interface TeamMember {
   name: string;
@@ -33,6 +35,16 @@ const teamMembers: TeamMember[] = [
       twitter: "#",
       email: "mailto:abdullahi@greenb.com",
     },
+  },
+  {
+    name: "Ahmed Salisu Ahmed",
+    role: "Chief Operating Officer (COO)",
+    image: ahmedImg,
+  },
+  {
+    name: "Dr. Hadiza Shettima Lawan",
+    role: "Business Development Director (BDD)",
+    image: hadizaImg,
   },
 ];
 
