@@ -70,7 +70,7 @@ export function HeroSection() {
               size="lg"
               variant="outline"
               onClick={() => scrollToSection("#about")}
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-8 py-6 text-lg rounded-full backdrop-blur-sm"
+              className="bg-transparent border-2 border-primary-foreground/60 text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold px-8 py-6 text-lg rounded-full backdrop-blur-sm transition-colors"
             >
               <Play className="mr-2 h-5 w-5" />
               Learn More
