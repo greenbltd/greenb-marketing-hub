@@ -23,9 +23,9 @@ const teamMembers: TeamMember[] = [
     focus: "Lead Vision • Leadership • Strategy • Overall Direction",
     image: musaImg,
     socials: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/musa-adamu-iya-45bbb0255",
       twitter: "#",
-      email: "mailto:musa@greenb.com",
+      email: "mailto:iyamusa0809@gmail.com",
     },
   },
   {
@@ -34,9 +34,9 @@ const teamMembers: TeamMember[] = [
     focus: "Technology • Innovation • Systems • Digital Development",
     image: abdullahiImg,
     socials: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/abdullahimrrobot",
       twitter: "#",
-      email: "mailto:abdullahi@greenb.com",
+      email: "mailto:aawgr146070@gmail.com",
     },
   },
   {
@@ -44,12 +44,19 @@ const teamMembers: TeamMember[] = [
     role: "Chief Operating Officer (COO)",
     focus: "Lead Operations • Execution • Efficiency • Business Performance",
     image: ahmedImg,
+    socials: {
+      email: "mailto:ahmedsalisuahmed27@gmail.com",
+    },
   },
   {
     name: "Dr. Hadiza Shettima Lawan",
     role: "Business Development Director (BDD)",
     focus: "Lead Business Growth • Strategic Partnerships • Market Expansion • New Opportunities",
     image: hadizaImg,
+    socials: {
+      linkedin: "https://www.linkedin.com/in/hadiza-shettima-phd-lds-941785173",
+      email: "mailto:shettimahadiza88@gmail.com",
+    },
   },
 ];
 
@@ -106,6 +113,8 @@ export const TeamSection = () => {
                     {member.socials.linkedin && (
                       <a
                         href={member.socials.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors"
                         aria-label={`${member.name} LinkedIn`}
                       >
@@ -115,6 +124,8 @@ export const TeamSection = () => {
                     {member.socials.twitter && (
                       <a
                         href={member.socials.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors"
                         aria-label={`${member.name} Twitter`}
                       >
