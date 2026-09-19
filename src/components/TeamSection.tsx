@@ -7,6 +7,7 @@ import ahmedImg from "@/assets/team/ahmed-salisu-ahmed.jpg";
 interface TeamMember {
   name: string;
   role: string;
+  focus?: string;
   image: string;
   socials?: {
     linkedin?: string;
@@ -39,11 +40,13 @@ const teamMembers: TeamMember[] = [
   {
     name: "Ahmed Salisu Ahmed",
     role: "Chief Operating Officer (COO)",
+    focus: "Lead Operations • Execution • Efficiency • Business Performance",
     image: ahmedImg,
   },
   {
     name: "Dr. Hadiza Shettima Lawan",
     role: "Business Development Director (BDD)",
+    focus: "Lead Business Growth • Strategic Partnerships • Market Expansion • New Opportunities",
     image: hadizaImg,
   },
 ];
